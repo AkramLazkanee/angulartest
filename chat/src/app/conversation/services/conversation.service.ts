@@ -28,4 +28,9 @@ export class ConversationService {
     .get<Message[]>( environment.api_url + "api/messages/Conversation/" + convo_id, {headers: this.headers});
   }
 
+  addConversationMessage(convo_id, text):Observable<Message> {
+    return this.http
+    .post<Message>( environment.api_url + "api/messages/Conversation/" + convo_id, {"text" : text}, {headers: this.headers});
+  }
+
 }
