@@ -11,8 +11,6 @@ import { SharedService } from '../shared.service';
 export class ContactsService {
 
   headers = new HttpHeaders();
-  // loggedInUser: loggedInUser = new loggedInUser();
-  isLoggedIn = false;
 
   getHeaders() {
     const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.access_token);
