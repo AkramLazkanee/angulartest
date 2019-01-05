@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ConversationsService } from '../conversations.service';
+import { Conversation } from '../conversation';
 
 @Component({
   selector: 'app-conversations-list',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConversationsListComponent implements OnInit {
 
-  constructor() { }
+  public list: Conversation[];
+
+  constructor(private service: ConversationsService) { }
 
   ngOnInit() {
+    this.getContactsList();
   }
-
+  
+  getContactsList() {
+    this.service.getConversationsList().subscribe(list => this.list = list)
+  }
 }
