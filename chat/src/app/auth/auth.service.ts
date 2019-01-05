@@ -51,7 +51,7 @@ export class AuthService {
   }
 
   getAccessToken(username: string, password: string): Observable<Token> {
-    let data = "grant_type = password&username=" + username + "&password" + password;
+    let data = "grant_type=password&username=" + username + "&password=" + password;
     const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + this.loggedInUser.access_token);
     return this.http.post<Token>(environment.api_url + 'Token', data, { headers: headers }
     );

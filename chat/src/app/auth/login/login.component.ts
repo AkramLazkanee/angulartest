@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     } else {
       this.mService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(
         () => {
-          this.mRouter.navigate(['/employees']);
+          this.mRouter.navigate(['/list']);
         }
       );
       this.loginForm.reset();
