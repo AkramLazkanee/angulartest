@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { ListModule } from './list/list.module';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     AuthModule,
+    ListModule,
     BrowserModule,
     AppRoutingModule,
   ],

@@ -1,3 +1,6 @@
 <p>
   contacts-list works!
 </p>
+<div *ngFor="let item of list">
+    <app-row [contact]="item"></app-row>
+</div>
