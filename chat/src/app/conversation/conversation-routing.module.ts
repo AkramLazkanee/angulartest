@@ -4,6 +4,8 @@ import { NgModule } from "@angular/core";
 
 const routes: Routes = [
     {path: 'conversation', component: ConvoComponent},
+    {path: 'conversation/:id', component: ConvoComponent},
+    
 ];
 
 @NgModule({
