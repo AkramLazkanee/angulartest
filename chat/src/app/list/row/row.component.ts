@@ -7,6 +7,7 @@ import {Contact} from '../contact';
   styleUrls: ['./row.component.css']
 })
 export class RowComponent implements OnInit {
+  
   @Input('contact') contact:Contact;
   constructor() { }
 
