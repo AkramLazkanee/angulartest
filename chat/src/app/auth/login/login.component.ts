@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     } else {
       this.mService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(
         () => {
-          this.mRouter.navigate(['/employees']);
+          this.mRouter.navigate(['/list']);
         }
       );
       this.loginForm.reset();
