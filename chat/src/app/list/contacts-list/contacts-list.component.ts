@@ -8,13 +8,14 @@ import { Contact } from '../contact';
   styleUrls: ['./contacts-list.component.css']
 })
 export class ContactsListComponent implements OnInit {
-  // public list: number[] = [1, 2];
+
   public list: Contact[];
   constructor(private service: ContactsService) { }
 
   ngOnInit() {
     this.getContactsList();
   }
+  
   getContactsList() {
     this.service.getContactsList().subscribe(dept => this.list = dept)
   }

@@ -9,14 +9,14 @@ import { ConversationModule } from './conversation/conversation.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     AuthModule,
     ListModule,
     BrowserModule,
-    AppRoutingModule,
     ConversationModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
