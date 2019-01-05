@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
+import { ListModule } from './list/list.module';
 import { ConversationModule } from './conversation/conversation.module';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { ConversationModule } from './conversation/conversation.module';
   ],
   imports: [
     AuthModule,
+    ListModule,
     BrowserModule,
     AppRoutingModule,
     ConversationModule,

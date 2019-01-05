@@ -1,3 +1,33 @@
-<p>
-  contacts-list works!
-</p>
+<div class="container-fluid h-100">
+  <div class="row justify-content-center h-100">
+    <div class="col-md-4 col-xl-3 chat">
+      <div class="card mb-sm-3 mb-md-0 contacts_card">
+        <div class="card-header">
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="pills-contacts-tab" data-toggle="pill" href="#pills-contacts" role="tab" aria-controls="pills-contacts" aria-selected="true" style="color: white">contacts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pills-conversations-tab" data-toggle="pill" href="#pills-conversations" role="tab" aria-controls="pills-conversations" aria-selected="false" style="color: white">conversations</a>
+            </li>
+          
+          </ul>
+        </div>
+        <div class="card-body contacts_body tab-pane fade show active"  id="pills-contacts" role="tabpanel" aria-labelledby="pills-contacts-tab">
+          <ul class="contacts">
+            <div *ngFor="let item of list">
+              <app-row [contact]="item"></app-row>
+            </div>
+          </ul>
+        </div>
+        <div class="card-body contacts_body tab-pane fade"  id="pills-conversations" role="tabpanel" aria-labelledby="pills-conversations-tab">
+          <ul class="contacts">
+            <div *ngFor="let item of list">
+              <app-row [contact]="item"></app-row>
+            </div>
+          </ul>
+        </div>
+        <div class="card-footer"></div>
+      </div>
+    </div>
+</div>
