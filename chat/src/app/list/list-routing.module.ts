@@ -1,14 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ListComponent } from './list/list.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
+import { ConversationsListComponent } from './conversations-list/conversations-list.component';
 
 const routes: Routes = [
+
   {
-    path: 'list',
+    path: 'list', component: ListComponent,
     children: [
-      { path: '', component: ContactsListComponent },
+      {
+        path: '',
+        children: [
+          { path: 'contacts', component: ContactsListComponent },
+          { path: 'conversations', component: ConversationsListComponent },
+          { path: '**', redirectTo: 'conversations' },
+        ]
+      }
     ]
-  },
+  }
 ];
 
 @NgModule({

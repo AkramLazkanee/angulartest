@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Token } from './token';
+import { Token } from '../token';
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators';
+import { SharedService } from '../shared.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,12 @@ import { map } from 'rxjs/operators';
 export class AuthService {
 
   headers = new HttpHeaders();
-  loggedInUser: Token = new Token();
-  isLoggedIn = false;
 
   getHeaders() {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json')/*.set('Authorization', 'Bearer ' + this.loggedInUser.token)*/;
+    const headers = new HttpHeaders().set('Content-Type', 'application/json')/*.set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.token)*/;
     return headers;
   }
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private sharedService: SharedService) {
     this.headers = this.getHeaders();
   }
 
@@ -29,15 +28,15 @@ export class AuthService {
           let tokenResponse: Token;
           tokenResponse = at;
           if (tokenResponse) {
-            this.loggedInUser.userName = tokenResponse.userName;
-            this.loggedInUser.access_token = tokenResponse.access_token;
-            this.loggedInUser[".expires"] = new Date(tokenResponse[".expires"]);
-            this.isLoggedIn = true;
-            localStorage.setItem("current_user", JSON.stringify(this.loggedInUser));
+            this.sharedService.loggedInUser.access_token = tokenResponse.access_token;
+            this.sharedService.loggedInUser.userName = tokenResponse.userName;
+            this.sharedService.loggedInUser[".expires"] = new Date(tokenResponse[".expires"]);
+            this.sharedService.isLoggedIn = true;
+            localStorage.setItem("current_user", JSON.stringify(this.sharedService.loggedInUser));
             return true;
           }
           else {
-            this.isLoggedIn = false;
+            this.sharedService.isLoggedIn = false;
             localStorage.removeItem("currentUser");
             return false;
           }
@@ -46,13 +45,13 @@ export class AuthService {
   }
 
   logout() {
-    this.isLoggedIn = false;
+    this.sharedService.isLoggedIn = false;
     localStorage.removeItem('currentUser');
   }
 
   getAccessToken(username: string, password: string): Observable<Token> {
     let data = "grant_type=password&username=" + username + "&password=" + password;
-    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + this.loggedInUser.access_token);
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.access_token);
     return this.http.post<Token>(environment.api_url + 'Token', data, { headers: headers }
     );
   }

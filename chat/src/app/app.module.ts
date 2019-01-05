@@ -9,7 +9,7 @@ import { ConversationModule } from './conversation/conversation.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     AuthModule,
