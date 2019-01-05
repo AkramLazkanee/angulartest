@@ -15,8 +15,8 @@ import { ConversationModule } from './conversation/conversation.module';
     AuthModule,
     ListModule,
     BrowserModule,
-    AppRoutingModule,
     ConversationModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
