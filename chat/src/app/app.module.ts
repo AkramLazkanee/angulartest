@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { ListModule } from './list/list.module';
+import { ConversationModule } from './conversation/conversation.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ListModule } from './list/list.module';
     ListModule,
     BrowserModule,
     AppRoutingModule,
+    ConversationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
