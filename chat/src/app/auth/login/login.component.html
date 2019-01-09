@@ -19,11 +19,17 @@
               <p class="text-danger" *ngIf="getForm.password.errors.required">Required</p>
             </div>
           </div>
-          <button class="btn btn-success">Login</button>
+          <div class="row">
+            <div class="col-6">
+              <button class="btn btn-success">Login</button>
+            </div>
+            <div class="col-6">
+              <a [routerLink]="['/register']" routerLinkActive="active" class="btn btn-sm btn-danger register-button">Register</a>
+            </div>
+          </div>
         </form>
       </div>
     </div>
     <div class="col-4"></div>
   </div>
-  <a [routerLink]="['/register']" routerLinkActive="active" class="btn btn-sm btn-danger register-button">Register</a>
 </div>
