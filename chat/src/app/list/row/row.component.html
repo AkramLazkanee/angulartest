@@ -1,8 +1,13 @@
-<li [routerLink]="['/converstaion/id']" routerLinkActive="active" class="active">
+<li [routerLink]="['/converstaion',item.Id]" routerLinkActive="active" class="active">
   <div class="d-flex bd-highlight">
-    
-    <div class="user_info"><span>Maryam Naz</span>
-      <p>Maryam is online</p>
+
+    <div *ngIf="item.FirstName else convo;"  class="user_info"><span>{{item.FirstName}} {{item.LastName}}</span>
+      <p>{{item.Phone}}</p>
     </div>
+    <ng-template #convo>
+      <div class="user_info"><span>{{item.Name}}</span>
+        <p>Convo</p>
+      </div>
+    </ng-template>
   </div>
 </li>
