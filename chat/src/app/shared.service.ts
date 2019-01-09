@@ -7,6 +7,18 @@ import { Token } from './token';
 export class SharedService {
   loggedInUser: Token = new Token();
   isLoggedIn = false;
-  
-  constructor() { }
+
+  constructor() {
+
+    let user = localStorage.getItem('current_user');
+
+    if (user) {
+      user = JSON.parse(user);
+      this.loggedInUser.access_token = user.access_token;
+      this.loggedInUser.userName = user.userName;
+      this.loggedInUser[".expires"] = new Date(user[".expires"]);
+      this.isLoggedIn = true;
+    }
+
+  }
 }
