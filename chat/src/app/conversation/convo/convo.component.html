@@ -1,3 +1,45 @@
-<p>
-  convo works!
-</p>
+<div class="card">
+  <div class="card-header msg_head">
+    <div class="d-flex bd-highlight">
+      <div class="img_cont">
+        <img src="https://devilsworkshop.org/files/2013/01/enlarged-facebook-profile-picture.jpg" class="rounded-circle user_img">
+        <span class="online_icon"></span>
+      </div>
+      <div class="user_info">
+        <span>Chat with Maryam Naz</span>
+        <p>1767 Messages</p>
+      </div>
+      <div class="video_cam">
+        <span><i class="fas fa-video"></i></span>
+        <span><i class="fas fa-phone"></i></span>
+      </div>
+    </div>
+    <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+    <div class="action_menu" style="display: none;">
+      <ul>
+        <li><i class="fas fa-user-circle"></i> View profile</li>
+        <li><i class="fas fa-users"></i> Add to close friends</li>
+        <li><i class="fas fa-plus"></i> Add to group</li>
+        <li><i class="fas fa-ban"></i> Block</li>
+      </ul>
+    </div>
+  </div>
+  <div #content class="card-body msg_card_body">
+
+    <app-message *ngFor="let message of messages" [msg]="message"></app-message>
+
+  </div>
+  <div class="card-footer">
+    <form (submit)="addMessage($event)" action="">
+    <div class="input-group">
+      <div class="input-group-append">
+        <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+      </div>
+      <input autocomplete="off" [(ngModel)]="message" name="text" class="form-control type_msg" placeholder="Type your message...">
+      <div class="input-group-append">
+        <span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

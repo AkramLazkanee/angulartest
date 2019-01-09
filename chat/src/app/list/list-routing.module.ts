@@ -14,7 +14,7 @@ const routes: Routes = [
         children: [
           { path: 'contacts', component: ContactsListComponent },
           { path: 'conversations', component: ConversationsListComponent },
-          { path: '**', redirectTo: 'conversations' },
+          // { path: '**', redirectTo: 'conversations' },
         ]
       }
     ]
