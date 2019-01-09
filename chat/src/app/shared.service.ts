@@ -16,6 +16,8 @@ export class SharedService {
       user = JSON.parse(user);
       this.loggedInUser.access_token = user.access_token;
       this.loggedInUser.userName = user.userName;
+      this.loggedInUser.FirstName = user.FirstName;
+      this.loggedInUser.LastName = user.LastName;
       this.loggedInUser[".expires"] = new Date(user[".expires"]);
       this.isLoggedIn = true;
     }
