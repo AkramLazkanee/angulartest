@@ -30,6 +30,8 @@ export class AuthService {
           if (tokenResponse) {
             this.sharedService.loggedInUser.access_token = tokenResponse.access_token;
             this.sharedService.loggedInUser.userName = tokenResponse.userName;
+            this.sharedService.loggedInUser.firstName = tokenResponse.FirstName;
+            this.sharedService.loggedInUser.lastName = tokenResponse.LastName;
             this.sharedService.loggedInUser[".expires"] = new Date(tokenResponse[".expires"]);
             this.sharedService.isLoggedIn = true;
             localStorage.setItem("current_user", JSON.stringify(this.sharedService.loggedInUser));
