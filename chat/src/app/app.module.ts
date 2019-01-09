@@ -14,8 +14,8 @@ import { ConversationModule } from './conversation/conversation.module';
   imports: [
     AuthModule,
     ListModule,
-    BrowserModule,
     ConversationModule,
+    BrowserModule,
     AppRoutingModule,
   ],
   providers: [],
