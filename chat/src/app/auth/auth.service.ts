@@ -14,7 +14,7 @@ export class AuthService {
   headers = new HttpHeaders();
 
   getHeaders() {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json')/*.set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.token)*/;
+    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')/*.set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.token)*/;
     return headers;
   }
   constructor(private http: HttpClient,private sharedService: SharedService) {
@@ -46,8 +46,8 @@ export class AuthService {
       );
   }
 
-  register(username: string, password: string, ConfirmPassword: string, FirstName: string, LastName: string, phone: number): Observable<boolean> {
-    let data = "username=" + username + "&password=" + password + "&ConfirmPassword=" + ConfirmPassword + "&FirstName=" + FirstName + "&LastName=" + LastName + "&phone=" + phone;
+  register(Email: string, Password: string, ConfirmPassword: string, FirstName: string, LastName: string, Phone: number): Observable<boolean> {
+    let data = "Email=" + Email + "&Password=" + Password + "&ConfirmPassword=" + ConfirmPassword + "&FirstName=" + FirstName + "&LastName=" + LastName + "&Phone=" + Phone;
     return this.http.post<boolean>(environment.api_url + 'api/Account/Register', data, { headers: this.headers });
 
   }
@@ -59,7 +59,7 @@ export class AuthService {
 
   getAccessToken(username: string, password: string): Observable<Token> {
     let data = "grant_type=password&username=" + username + "&password=" + password;
-    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.access_token);
+    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.access_token);
     return this.http.post<Token>(environment.api_url + 'Token', data, { headers: headers }
     );
   }

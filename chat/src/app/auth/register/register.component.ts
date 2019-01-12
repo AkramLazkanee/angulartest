@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.RegisterForm = this.fb.group({
-      Email: ['', Validators.required],
+      Email: ['', Validators.email],
       password: ['', Validators.required],
       ConfirmPassword: ['', Validators.required],
       FirstName: ['', Validators.required],
@@ -36,8 +36,7 @@ export class RegisterComponent implements OnInit {
     } else {
       this.mService.register(this.RegisterForm.value.Email, this.RegisterForm.value.password, this.RegisterForm.value.ConfirmPassword, this.RegisterForm.value.FirstName, this.RegisterForm.value.LastName, this.RegisterForm.value.Phone).subscribe(
         () => {
-          console.log("I'm here!")
-          this.mRouter.navigate(['/list/contacts']);
+          this.mRouter.navigate(['/login']);
         }
       );
       this.RegisterForm.reset();

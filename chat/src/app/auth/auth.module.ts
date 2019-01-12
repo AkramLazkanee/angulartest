@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { AuthRoutingModule } from './auth-routing.module';
 import { UserBarComponent } from './user-bar/user-bar.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { UserBarComponent } from './user-bar/user-bar.component';
     HttpClientModule,
     AuthRoutingModule
   ],
-  declarations: [LoginComponent, RegisterComponent, UserBarComponent]
+  declarations: [LoginComponent, RegisterComponent, UserBarComponent, ChangepasswordComponent]
 })
 export class AuthModule { }
