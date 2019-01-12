@@ -9,14 +9,12 @@ const routes: Routes = [
   {
     path: 'list', component: ListComponent,
     children: [
-      {
-        path: '',
-        children: [
-          { path: 'contacts', component: ContactsListComponent },
+    
+          { path: 'contacts',  component: ContactsListComponent },
           { path: 'conversations', component: ConversationsListComponent },
+
           // { path: '**', redirectTo: 'conversations' },
-        ]
-      }
+        
     ]
   }
 ];
