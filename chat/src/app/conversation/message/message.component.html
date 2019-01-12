@@ -2,8 +2,10 @@
   <div class="img_cont_msg">
     <img src="https://image.freepik.com/free-icon/user-profile-icon_318-33925.jpg" class="rounded-circle user_img_msg">
   </div>
-  <div class="msg_cotainer" style="min-width:150px;">
-      <b>Id {{msg.SenderId}}:</b> {{msg.Text}}
+  <div class="msg_cotainer" style="min-width:150px;direction: ltr;">
+      <div style="display:flex;">
+        <b>{{msg.Sender}}:&nbsp;</b> <span>{{msg.Text}}</span>
+      </div>
     <span class="msg_time">{{ msg.SendingDateTime | date }}</span>
   </div>
 </div>
