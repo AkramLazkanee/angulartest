@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Contact } from '../contact';
 import { Conversation } from '../conversation';
 import { Router } from '@angular/router';
+import { ContactsService } from '../contacts.service';
 
 @Component({
   selector: 'app-row',
@@ -13,10 +14,15 @@ export class RowComponent implements OnInit {
   @Input('contact') contact: Contact;
   @Input('conversation') conversation: Conversation;
   item;
-  constructor( private router:Router) { }
 
+  component;
+  constructor(private router:Router, private ContactsService: ContactsService) { }
+  delContactsDetails(id) {
+    this.ContactsService.getContactsDetails(id).subscribe();
+  }
   ngOnInit() {
     this.item = this.contact ? this.contact : this.conversation;
+    this.component = this.contact.FirstName ? '/list/contact' : '/list/conversations';
     // console.log(this.item);
 
   }
@@ -27,4 +33,7 @@ export class RowComponent implements OnInit {
   }
 
 
+  delete(id){
+    this.delContactsDetails(id);
+  }
 }

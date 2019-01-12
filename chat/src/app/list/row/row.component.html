@@ -9,5 +9,13 @@
         <p>Convo</p>
       </div>
     </ng-template>
+  <div class="text-right" style="width: 100%;">
+    <div style="margin-bottom: 5px;">
+     <button class="btn btn-info" style="width: 40px;" [routerLink]="[component,item.Id]" routerLinkActive="active"><i class="fa fa-info" ></i></button>
+    </div>
+    <div>
+      <button class="btn btn-danger" (click)="delete(item.Id)"><i class="fa fa-trash" ></i></button>
+    </div>
+</div>
   </div>
 </li>
