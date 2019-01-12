@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, AfterViewChecked } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConversationService } from '../services/conversation.service';
 import { Message } from '../models/message';
@@ -8,7 +8,10 @@ import { Message } from '../models/message';
   templateUrl: './convo.component.html',
   styleUrls: ['./convo.component.css']
 })
-export class ConvoComponent implements OnInit, AfterViewInit {
+export class ConvoComponent implements OnInit, AfterViewChecked {
+  ngAfterViewChecked(): void {
+    this.scrollToBottom()
+  }
   ngAfterViewInit(): void {
     this.scrollToBottom()
   }
