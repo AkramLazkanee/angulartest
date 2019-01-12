@@ -16,7 +16,7 @@ export class ContactsService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.access_token);
     return headers;
   }
-  constructor(private http: HttpClient,private sharedService: SharedService) {
+  constructor(private http: HttpClient, private sharedService: SharedService) {
     this.headers = this.getHeaders();
   }
 
@@ -26,4 +26,23 @@ export class ContactsService {
         .headers
     })
   }
+
+  getContactsDetails(id: number): Observable<Contact> {
+    return this.http.get<Contact>(environment.api_url + 'api/Contacts/' + id, {
+      headers: this
+        .headers
+    })
+  }
+  delContactsDetails(id: number): Observable<Contact> {
+    return this.http.delete<Contact>(environment.api_url + 'api/Contacts/' + id, {
+      headers: this
+        .headers
+    })
+  }
+  putContactsDetails(first: number,last: string,phone: number,id:number): Observable<Contact> {
+    let data = "FirstName=" + first + "&LastName=" + last+ "&Phone=" + phone;
+    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.access_token);
+    return this.http.put<Contact>(environment.api_url + 'api/Contacts/' + id, data, { headers: headers });
+  }
+
 }
