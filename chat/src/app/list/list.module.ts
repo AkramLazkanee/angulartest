@@ -7,10 +7,14 @@ import { ConversationsService } from './conversations.service';
 import { ListRoutingModule } from './list-routing.module';
 import { ConversationsListComponent } from './conversations-list/conversations-list.component';
 import { ListComponent } from './list/list.component';
+import { ContactDetailsComponent } from './contact-details/contact-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule, 
+    ReactiveFormsModule,
     ListRoutingModule
   ],
   providers: [ContactsService, ConversationsService],
@@ -18,7 +22,8 @@ import { ListComponent } from './list/list.component';
     ListComponent,
     RowComponent, 
     ContactsListComponent,
-    ConversationsListComponent, 
+    ConversationsListComponent,
+    ContactDetailsComponent, 
   ]
 })
 export class ListModule { }
