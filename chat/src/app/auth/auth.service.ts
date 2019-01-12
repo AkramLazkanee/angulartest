@@ -44,6 +44,12 @@ export class AuthService {
       );
   }
 
+  register(username: string, password: string, ConfirmPassword: string, FirstName: string, LastName: string, phone: number): Observable<boolean> {
+    let data = "username=" + username + "&password=" + password + "&ConfirmPassword=" + ConfirmPassword + "&FirstName=" + FirstName + "&LastName=" + LastName + "&phone=" + phone;
+    return this.http.post<boolean>(environment.api_url + 'api/Account/Register', data, { headers: this.headers });
+
+  }
+
   logout() {
     this.sharedService.isLoggedIn = false;
     localStorage.removeItem('currentUser');

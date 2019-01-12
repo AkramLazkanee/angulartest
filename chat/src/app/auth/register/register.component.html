@@ -1,35 +1,56 @@
 <div class="container mt-5">
-  <form>
-    <div class="row">
-      <div class="col-6">
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control col-8" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control col-8" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Confirm Password</label>
-          <input type="password" class="form-control col-8" id="exampleInputPassword1" placeholder="Confirm Password">
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="form-group">
-          <label for="exampleInputEmail1">First Name</label>
-          <input type="text" class="form-control col-8" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Last Name</label>
-          <input type="text" class="form-control col-8" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last Name">
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Phone</label>
-          <input type="text" class="form-control col-8" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone">
-        </div>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <div class="alert alert-primary">
+        <h2 class="alert-heading">Register</h2>
+        <form (ngSubmit)="onClick()" [formGroup]="RegisterForm">
+          <div class="form-group">
+            <label for="Email">Email</label> :
+            <input id="Email" class="form-control" formControlName="Email" type="email" />
+            <div *ngIf="btn_pressed && getForm.Email.errors">
+              <p class="text-danger" *ngIf="getForm.Email.errors.required">Required</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label> :
+            <input id="password" class="form-control" formControlName="password" type="password" />
+            <div *ngIf="btn_pressed && getForm.password.errors">
+              <p class="text-danger" *ngIf="getForm.password.errors.required">Required</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="ConfirmPassword">Confirm Password</label> :
+            <input id="ConfirmPassword" class="form-control" formControlName="ConfirmPassword" type="password" />
+            <div *ngIf="btn_pressed && getForm.ConfirmPassword.errors">
+              <p class="text-danger" *ngIf="getForm.ConfirmPassword.errors.required">Required</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="FirstName">First Name</label> :
+            <input id="FirstName" class="form-control" formControlName="FirstName" type="text" />
+            <div *ngIf="btn_pressed && getForm.FirstName.errors">
+              <p class="text-danger" *ngIf="getForm.FirstName.errors.required">Required</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="LastName">Last name</label> :
+            <input id="LastName" class="form-control" formControlName="LastName" type="text" />
+            <div *ngIf="btn_pressed && getForm.LastName.errors">
+              <p class="text-danger" *ngIf="getForm.LastName.errors.required">Required</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Phone">Phone</label> :
+            <input id="Phone" class="form-control" formControlName="Phone" type="text" />
+            <div *ngIf="btn_pressed && getForm.Phone.errors">
+              <p class="text-danger" *ngIf="getForm.Phone.errors.required">Required</p>
+            </div>
+          </div>
+          <button class="btn btn-success">Submit</button>
+        </form>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+    <div class="col-4"></div>
+  </div>
 </div>
