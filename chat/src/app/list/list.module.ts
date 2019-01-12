@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ApplicationModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { RowComponent } from './row/row.component';

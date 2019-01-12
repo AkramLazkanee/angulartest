@@ -15,13 +15,14 @@ const routes: Routes = [
         children: [
           { path: 'contacts', component: ContactsListComponent },
           { path: 'contact/:id', component: ContactDetailsComponent },
+    
           { path: 'conversations', component: ConversationsListComponent },
+
           // { path: '**', redirectTo: 'conversations' },
-        ]
-      }
+        
     ]
   }
-];
+]}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
