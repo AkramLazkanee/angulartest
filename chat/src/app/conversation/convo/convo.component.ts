@@ -27,13 +27,14 @@ export class ConvoComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
 
-    this.convo_title = "convo"
+    
 
     this.route.paramMap.subscribe(params=>{
 
-      const Id = +params.get('id');
+      const Id = +params.get('id')
+      this.convo_title = params.get('n')
+
       if(!Id)return;
-      console.log("Id");
       // console.log(Id);
       this.convo_id = Id
       this.conversationsService.getConversationMessages(Id)
