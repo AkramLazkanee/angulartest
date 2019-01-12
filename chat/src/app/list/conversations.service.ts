@@ -24,4 +24,21 @@ export class ConversationsService {
         .headers
     })
   }
+  getConversationsDetails(id: number): Observable<Conversation> {
+    return this.http.get<Conversation>(environment.api_url + 'api/Conversations/' + id, {
+      headers: this
+        .headers
+    })
+  }
+
+  putConversationsDetails(first: number, id: number): Observable<Conversation> {
+    let data = "Name=" + first +"&Id=" + id ;
+    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.access_token);
+    return this.http.put<Conversation>(environment.api_url + 'api/Conversations/' + id, data, { headers: headers });
+  }
+  postConversationsDetails(first: number): Observable<Conversation> {
+    let data = "Name=" + first ;
+    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.access_token);
+    return this.http.post<Conversation>(environment.api_url + 'api/Conversations', data, { headers: headers });
+  }
 }

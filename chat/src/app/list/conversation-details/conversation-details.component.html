@@ -1,0 +1,19 @@
+<div class="row" style="margin: 0">
+  <div class="col-1"></div>
+  <div class="col-10" style="color: white">
+    
+      <h2 class="alert-heading">info</h2>
+      <form (ngSubmit)="onClick()" [formGroup]="updateDetails">
+        <div class="form-group">
+          <label for="first">Room name</label> :
+          <input id="first" class="form-control" formControlName="first" type="text" [(ngModel)]="details.FirstName" />
+          <div *ngIf="btn_pressed && getForm.first.errors">
+            <p class="text-danger" *ngIf="getForm.first.errors.required">Required</p>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Add</button>
+      </form>
+    </div>
+  
+  
+</div>
