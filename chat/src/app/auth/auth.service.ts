@@ -52,6 +52,12 @@ export class AuthService {
 
   }
 
+  changepassword(OldPassword: string, NewPassword: string, ConfirmPassword: string): Observable<boolean> {
+    let data = "OldPassword=" + OldPassword + "&NewPassword=" + NewPassword + "&ConfirmPassword=" + ConfirmPassword; 
+    return this.http.post<boolean>(environment.api_url + 'api/Account/ChangePassword', data, { headers: this.headers });
+
+  }
+
   logout() {
     this.sharedService.isLoggedIn = false;
     localStorage.removeItem('currentUser');

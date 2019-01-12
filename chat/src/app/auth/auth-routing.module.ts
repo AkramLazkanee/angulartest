@@ -1,3 +1,4 @@
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { RegisterComponent } from './register/register.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -13,6 +14,7 @@ const routes: Routes = [
         children: [
           { path: 'login', component: LoginComponent },
           { path: 'register', component: RegisterComponent },
+          {path: 'changepassword', component: ChangepasswordComponent}
         ]
       }
     ]
