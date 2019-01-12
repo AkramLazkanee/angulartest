@@ -14,6 +14,8 @@ export class ConversationService {
 
   constructor(private http:HttpClient) { }
 
+  public selectedConvo : Observable<number>
+
   getHeaders():HttpHeaders {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',

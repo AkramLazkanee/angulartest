@@ -16,7 +16,7 @@ export class RowComponent implements OnInit {
 
   ngOnInit() {
     this.item = this.contact ? this.contact : this.conversation;
-    console.log(this.item);
+    // console.log(this.item);
 
   }
 

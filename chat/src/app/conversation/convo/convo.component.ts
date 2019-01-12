@@ -16,17 +16,24 @@ export class ConvoComponent implements OnInit, AfterViewChecked {
     this.scrollToBottom()
   }
 
-  private messages :Message[]
+  private messages :Message[] = []
   private message :string
   private convo_id
   @ViewChild('content') content: ElementRef;
 
   constructor(private conversationsService:ConversationService, private route :ActivatedRoute, private router :Router) { }
 
+  convo_title = ""
+
   ngOnInit() {
+
+    this.convo_title = "convo"
+
     this.route.paramMap.subscribe(params=>{
+
       const Id = +params.get('id');
       if(!Id)return;
+      console.log("Id");
       // console.log(Id);
       this.convo_id = Id
       this.conversationsService.getConversationMessages(Id)
@@ -39,6 +46,8 @@ export class ConvoComponent implements OnInit, AfterViewChecked {
 
     });
 
+
+
   }
 
   scrollToBottom() {
@@ -50,6 +59,7 @@ export class ConvoComponent implements OnInit, AfterViewChecked {
   addMessage(e) {
     e.preventDefault();
     // console.log(this.message)
+
     this.conversationsService.addConversationMessage(this.convo_id, this.message).subscribe(res=>{
       this.messages.push(res)
       this.message = ""

@@ -13,10 +13,10 @@ import { ConversationModule } from './conversation/conversation.module';
   ],
   imports: [
     AuthModule,
-    ListModule,
-    ConversationModule,
     BrowserModule,
     AppRoutingModule,
+    ConversationModule,
+    ListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
