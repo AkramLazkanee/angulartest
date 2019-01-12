@@ -20,7 +20,7 @@ export class RowComponent implements OnInit {
   }
   ngOnInit() {
     this.item = this.contact ? this.contact : this.conversation;
-    this.component = this.contact ? '/contact' : '/conversations';
+    this.component = this.contact.FirstName ? '/list/contact' : '/list/conversations';
     // console.log(this.item);
 
   }

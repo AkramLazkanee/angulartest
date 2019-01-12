@@ -10,19 +10,16 @@ const routes: Routes = [
   {
     path: 'list', component: ListComponent,
     children: [
-      {
-        path: '',
-        children: [
+      
+        
           { path: 'contacts', component: ContactsListComponent },
           { path: 'contact/:id', component: ContactDetailsComponent },
-    
           { path: 'conversations', component: ConversationsListComponent },
 
           // { path: '**', redirectTo: 'conversations' },
         
     ]
-  }
-]}];
+  }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
