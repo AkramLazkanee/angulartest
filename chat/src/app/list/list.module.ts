@@ -9,6 +9,7 @@ import { ConversationsListComponent } from './conversations-list/conversations-l
 import { ListComponent } from './list/list.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConversationDetailsComponent } from './conversation-details/conversation-details.component';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactsListComponent,
     ConversationsListComponent,
     ContactDetailsComponent, 
+    ConversationDetailsComponent, 
   ]
 })
 export class ListModule { }
