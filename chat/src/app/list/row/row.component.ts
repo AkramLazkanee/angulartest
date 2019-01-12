@@ -13,12 +13,13 @@ export class RowComponent implements OnInit {
 
   @Input('contact') contact: Contact;
   @Input('conversation') conversation: Conversation;
+  
   item;
 
   component;
   constructor( private route:ActivatedRoute, private router:Router, private ContactsService: ContactsService) { }
   delContactsDetails(id) {
-    this.ContactsService.getContactsDetails(id).subscribe();
+    this.ContactsService.delContactsDetails(id).subscribe();
   }
   ngOnInit() {
     this.item = this.contact ? this.contact : this.conversation;
