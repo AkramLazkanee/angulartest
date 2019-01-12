@@ -7,9 +7,12 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./user-bar.component.css']
 })
 export class UserBarComponent implements OnInit {
-  name: string;
+  first: string;
+  last: string;
+  
   constructor(private sharedService: SharedService) {
-    this.name = this.sharedService.loggedInUser.userName
+    this.first = this.sharedService.loggedInUser.FirstName;
+    this.last = this.sharedService.loggedInUser.LastName;
   }
 
   ngOnInit() {
