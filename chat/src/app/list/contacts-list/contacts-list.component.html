@@ -1,3 +1,8 @@
 <div *ngFor="let item of list">
   <app-row [contact]="item"></app-row>
 </div>
+<div class="text-center">
+  <button class="btn btn-success" [routerLink]="['/list/contacts/add']" routerLinkActive="active" style="border-radius: 50%">
+    <i class="fa fa-plus"></i>
+  </button>
+</div>

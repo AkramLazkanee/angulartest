@@ -15,6 +15,7 @@ const routes: Routes = [
           { path: 'contacts', component: ContactsListComponent },
           { path: 'contact/:id', component: ContactDetailsComponent },
           { path: 'conversations', component: ConversationsListComponent },
+          { path: 'contacts/add', component: ContactDetailsComponent },
 
           // { path: '**', redirectTo: 'conversations' },
         
