@@ -13,9 +13,12 @@ import { Contact } from '../contact';
 export class ContactDetailsComponent implements OnInit {
   updateDetails: FormGroup;
   btn_pressed = false;
-  public details: Contact;
+  details: Contact = new Contact();
   id: number;
-  constructor(private ContactsService: ContactsService, private route: ActivatedRoute, private fb: FormBuilder, private mRouter: Router) { }
+  constructor(private ContactsService: ContactsService, private route: ActivatedRoute, private fb: FormBuilder, private mRouter: Router) { 
+
+
+  }
 
   getContactsDetails(id) {
     this.ContactsService.getContactsDetails(id).subscribe(details => this.details = details)
@@ -44,11 +47,19 @@ export class ContactDetailsComponent implements OnInit {
     if (this.updateDetails.invalid) {
       return;
     } else {
-      this.ContactsService.putContactsDetails(this.updateDetails.value.first, this.updateDetails.value.last, this.updateDetails.value.phone, this.id).subscribe(
-        () => {
-          this.mRouter.navigate(['/list/contacts']);
-        }
-      );
+      if (this.id) {
+        this.ContactsService.putContactsDetails(this.updateDetails.value.first, this.updateDetails.value.last, this.updateDetails.value.phone, this.id).subscribe(
+          () => {
+            this.mRouter.navigate(['/list/contacts']);
+          }
+        )
+      } else {
+        this.ContactsService.postContactsDetails(this.updateDetails.value.first, this.updateDetails.value.last, this.updateDetails.value.phone).subscribe(
+          () => {
+            this.mRouter.navigate(['/list/contacts']);
+          }
+        )
+      }
       this.updateDetails.reset();
       this.btn_pressed = false;
     }

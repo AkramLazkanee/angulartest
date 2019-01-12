@@ -39,10 +39,15 @@ export class ContactsService {
         .headers
     })
   }
-  putContactsDetails(first: number,last: string,phone: number,id:number): Observable<Contact> {
-    let data = "FirstName=" + first + "&LastName=" + last+ "&Phone=" + phone;
-    const headers = new HttpHeaders().set('Content-Type', 'application/json').set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.access_token);
+  putContactsDetails(first: number, last: string, phone: number, id: number): Observable<Contact> {
+    let data = "FirstName=" + first + "&LastName=" + last + "&Phone=" + phone+ "&Id=" + id;
+    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.access_token);
     return this.http.put<Contact>(environment.api_url + 'api/Contacts/' + id, data, { headers: headers });
+  }
+  postContactsDetails(first: number, last: string, phone: number): Observable<Contact> {
+    let data = "FirstName=" + first + "&LastName=" + last + "&Phone=" + phone;
+    const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', 'Bearer ' + this.sharedService.loggedInUser.access_token);
+    return this.http.post<Contact>(environment.api_url + 'api/Contacts', data, { headers: headers });
   }
 
 }
